@@ -1,3 +1,10 @@
-FROM nginx:stable-alpine-slim
-COPY minio-console.conf.template /etc/nginx/templates/
-RUN rm /etc/nginx/conf.d/default.conf /docker-entrypoint.d/10-listen-on-ipv6-by-default.sh
+FROM minio/minio:latest
+
+# Mount persistent storage (if needed, handled by your deploy platform)
+VOLUME /data
+
+# Expose the API port (optional, your deploy platform defines ports)
+EXPOSE 9000
+
+# Start MinIO server without console listener
+CMD ["minio", "server", "/data"]
