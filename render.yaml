@@ -24,8 +24,6 @@ services:
     value: "0.0.0.0"
   - key: PORT
     value: 9000
-  - key: CONSOLE_PORT
-    value: 9090
   # Uncomment the following key/value pair if you are removing the
   # 'minio-console' web service
   # - key: MINIO_BROWSER
